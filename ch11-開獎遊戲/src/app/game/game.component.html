@@ -1,0 +1,6 @@
+<div id="game-box">
+  <app-bet-control [gameControl]="gameControlService.gameControl" [coinObject]="gameCoinService.coinObject" (playGameEvent)="playGame($event)"
+    (stopGameEvent)="stopGame($event)" (calculateStartEvent)="calculateStart($event)" (calculateEndEvent)="calculateEnd($event)"></app-bet-control>
+  <app-bet-list [list]="gameItemService.list"></app-bet-list>
+  <app-bet-items [items]="gameItemService.items" (minusCoinEvent)="minusCoin($event)" (plusCoinEvent)="plusCoin($event)"></app-bet-items>
+</div>

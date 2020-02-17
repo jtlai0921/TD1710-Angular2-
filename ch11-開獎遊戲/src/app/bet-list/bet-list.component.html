@@ -1,0 +1,5 @@
+<ul>
+  <li *ngFor="let item of list" [ngClass]="{'active':item.isActive}">
+    {{item.title}}
+  </li>
+</ul>

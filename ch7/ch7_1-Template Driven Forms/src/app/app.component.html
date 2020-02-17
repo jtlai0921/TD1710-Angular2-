@@ -1,0 +1,26 @@
+<h1>
+  Angular2 Form
+</h1>
+<form #loginForm="ngForm">
+  <div>
+    <label for="account">帳號：</label>
+    <input type="text" name="account" required minlength="5" ngModel #account="ngModel">
+  </div>
+  <div *ngIf="account.errors">
+    <span *ngIf="account.errors.required">請輸入帳號！</span>
+    <span *ngIf="account.errors.minlength">帳號最少輸入5個字！</span>
+  </div>
+  <br>
+  <div>
+    <label for="password">密碼：</label>
+    <input type="password" name="password" required ngModel #password="ngModel">
+  </div>
+  <div *ngIf=" password.errors ">
+    <span *ngIf="password.errors.required">請輸入密碼！</span>
+  </div>
+  <br>
+  <button type="submit ">登入</button>
+  <div>
+    <pre>{{ loginForm.value | json }}</pre>
+  </div>
+</form>

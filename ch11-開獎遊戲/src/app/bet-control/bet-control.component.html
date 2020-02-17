@@ -1,0 +1,27 @@
+<div id="wrap">
+    <div class="calculate-box">
+        <button class="start" (click)="start()" *ngIf="!gameControl.isStart">開始</button>
+        <button class="stop" (click)="stop()" *ngIf="gameControl.isStart && !gameControl.isGet">停止</button>
+        <button class="get" (click)="get()" *ngIf="gameControl.isStart && gameControl.isGet">結算</button>
+        <ul>
+            <li>
+                <h5>剩餘代幣</h5>
+                <h3 class="count">
+                    {{coinObject.totalCoin-coinObject.usedCoin}}
+                </h3>
+            </li>
+            <li>
+                <h5>已使用代幣</h5>
+                <h3 class="count">
+                    {{coinObject.usedCoin}}
+                </h3>
+            </li>
+            <li>
+                <h5>贏得代幣</h5>
+                <h3 class="count">
+                    {{coinObject.winCoin}}
+                </h3>
+            </li>
+        </ul>
+    </div>
+</div>

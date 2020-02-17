@@ -1,0 +1,10 @@
+<ul>
+  <li *ngFor="let item of items">
+    <label htmlFor="chk_{{item.id}}">
+      <input type="checkbox" id="chk_{{item.id}}" [checked]="item.done" (click)="itemClick(item)" >
+      {{ item.value }}
+    </label>
+    <a href="#" (click)="delete(item)">刪除</a>
+    <span *ngIf="item.done">(已完成)</span>
+  </li>
+</ul>

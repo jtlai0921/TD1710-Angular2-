@@ -1,0 +1,11 @@
+<ul [style.width]="80*items.length+'px'">
+  <li *ngFor="let item of items" [ngClass]="{'active':item.isActive}">
+    <h2 class="money">{{item.price}}</h2>    
+    <h5>{{item.title}}</h5>
+    <button class="minus" (click)="minus(item)">-</button>
+    <button class="plus" (click)="plus(item)">+</button>
+    <h3 class="count">
+      {{item.count}}
+    </h3>
+  </li>
+</ul>

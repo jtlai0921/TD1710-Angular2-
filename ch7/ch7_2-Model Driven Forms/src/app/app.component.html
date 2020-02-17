@@ -1,0 +1,59 @@
+<h1> Angular2 Model Driven Form </h1>
+<form [formGroup]="form">
+  <div>
+    <label for="account">帳號：</label>
+    <input type="text" name="account" formControlName="account">
+    <div class="errors" *ngIf="form.controls.account.errors">
+      <span *ngIf="form.controls.account.errors.required">請輸入帳號!</span>
+      <span *ngIf="form.controls.account.errors.minlength">帳號最少輸入5個 字!</span>
+    </div>
+  </div>
+  <br>
+  <div>
+    <label for="password">密碼：</label>
+    <input type="password" name="password" formControlName="password">
+    <div class="errors" *ngIf="form.controls.password.errors">
+      <span *ngIf="form.controls.password.errors.required">請輸入密碼!</span>
+    </div>
+  </div>
+  <br>
+  <div formGroupName="personal">
+    <div>
+      <label for="name">名字：</label>
+      <input type="text" formControlName="name">
+      <div class="errors" *ngIf="form.controls.personal.controls.name.errors">
+        <span *ngIf="form.controls.personal.controls.name.errors. required">請輸入名字!</span>
+      </div>
+    </div>
+    <br>
+    <div>
+      <label for="gender">性別：</label>
+      <input type="radio" formControlName="gender" value="1"> 男
+      <input type="radio" formControlName="gender" value="2"> 女
+      <input type="radio" formControlName="gender" value="0"> 其他
+    </div>
+    <br>
+    <div>
+      <label for="birthday">生日：</label>
+      <input type="date" formControlName="birthday">
+    </div>
+  </div>
+  <br>
+  <div>
+    <label for="subscription">希望收到訂閱資訊：</label>
+    <input type="checkbox" formControlName="subscription" (change)="checkSubscription()">
+  </div>
+  <br>
+  <div>
+    <label for="email">訂閱信箱：</label>
+    <input type="text" formControlName="email">
+    <div class="errors" *ngIf="form.controls.email.errors">
+      <span *ngIf="form.controls.email.errors.required">訂閱請輸入信箱!</span>
+      <span *ngIf="form.controls.email.errors.pattern">信箱格式不正確!</span>
+    </div>
+  </div>
+  <br>
+  <button type="submit">送出</button>
+  <button type="button" (click)="reset()">重置表單</button>
+
+</form>
